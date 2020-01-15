@@ -1,0 +1,10 @@
+.restaurant-container {
+  margin-top: 20vh;
+}
+.map {
+  width: 50vw;
+  height: 50vh;
+  display: block;
+  position: relative;
+  background: red;
+}
