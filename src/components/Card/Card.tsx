@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import "./card.css";
 interface CardProps {
   title: string;
   content: string;
@@ -7,9 +7,9 @@ interface CardProps {
 
 export default ({ title, content }: CardProps) => {
   return (
-    <div className="card-container">
-      <h1>{title}</h1>
-      <h2>{content}</h2>
+    <div className="card">
+      <div className="card-title">{title}</div>
+      <div className="card-content">{content}</div>
     </div>
   );
 };

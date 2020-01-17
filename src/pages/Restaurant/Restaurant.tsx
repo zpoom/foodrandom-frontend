@@ -1,8 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Card } from "../../components";
-import { Row, Col, Button } from "antd";
+import { Row, Col } from "antd";
 import { Restaurant } from "../../interfaces";
 import { getRandomRestaurant } from "../../api/restaurant";
+import { Redirect } from "react-router-dom";
 import "./restaurant.css";
 
 export default () => {
@@ -16,12 +17,14 @@ export default () => {
     longitude: -1,
     menu: ""
   });
-
+  const [redirect, setRedirect] = useState(false);
   useEffect(() => {
     const res: Restaurant | undefined = getRandomRestaurant(excludedCategories);
     if (res !== undefined) {
       setRestaurant(res);
       console.log(excludedCategories);
+    } else {
+      setRedirect(true);
     }
   }, [excludedCategories]);
 
@@ -30,29 +33,26 @@ export default () => {
       setExcludedCategories(excludedCategories.concat(category));
     }
   };
-  return (
+  return redirect ? (
+    <Redirect to="/no-restaurant" />
+  ) : (
     <div className="restaurant-container">
       <Row type="flex" justify="center">
-        <Col span={6}>
-          <Card title="Category" content={restaurant.category}></Card>
-          <Card title="Menu" content={restaurant.menu}></Card>
-          <Button
-            type="danger"
-            shape="round"
-            size="large"
-            onClick={() => excludedThisCategory(restaurant.category)}
-          >
-            {`No ${restaurant.category} food, please`}
-          </Button>
+        <Col span={8}>
+          <div className="card-container">
+            <Card title="Menu" content={restaurant.menu}></Card>
+          </div>
+          <div className="card-container">
+            <Card title="Category" content={restaurant.category}></Card>
+          </div>
+          <div className="exclude-button">
+            <h1 onClick={() => excludedThisCategory(restaurant.category)}>
+              {`No ${restaurant.category} food, please`}
+            </h1>
+          </div>
         </Col>
         <Col span={12}>
-          <div className="map">
-            <h3>{restaurant.name}</h3>
-            <h3>{restaurant.category}</h3>
-            <h3>{restaurant.latitude}</h3>
-            <h3>{restaurant.longitude}</h3>
-            <h3>{restaurant.menu}</h3>
-          </div>
+          <div className="map"></div>
         </Col>
       </Row>
     </div>

@@ -1,10 +1,32 @@
 .restaurant-container {
-  margin-top: 20vh;
+  margin-top: 15vh;
 }
 .map {
   width: 50vw;
-  height: 50vh;
+  height: 70vh;
   display: block;
   position: relative;
   background: red;
+}
+.card-container {
+  margin-top: 5vh;
+}
+.exclude-button {
+  margin-top: 5vh;
+  background-color: red;
+  border-radius: 3vh;
+  text-align: center;
+  width: 30vw;
+  height: 10vh;
+  display: inline-block;
+}
+.exclude-button h1 {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5vw;
+  color: black;
+  padding: 1vh;
+  margin-top: 2vh;
+}
+.exclude-button h1:hover {
+  text-decoration: underline;
 }

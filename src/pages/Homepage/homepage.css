@@ -1,0 +1,29 @@
+.what-to-eat {
+  margin-top: 30vh;
+  background-color: #e5d68e;
+  border-radius: 3vh;
+  /* width: 40vw; */
+  text-align: center;
+  width: auto;
+  height: auto;
+}
+.what-to-eat h1 {
+  font-family: "Rubik", sans-serif;
+  font-size: 96px;
+  color: black;
+  padding: 5vh;
+  margin-top: 2vh;
+}
+.what-to-eat h1:hover {
+  text-decoration: underline;
+}
+
+.next-icon {
+  width: 10vw;
+  height: auto;
+  display: none;
+}
+
+what-to-eat h1:hover + .icon {
+  display: inline-block;
+}
