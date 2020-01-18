@@ -5,16 +5,23 @@ import { Restaurant } from "../../interfaces";
 import { getRandomRestaurant } from "../../api/restaurant";
 import { Redirect } from "react-router-dom";
 import "./restaurant.css";
+import { GOOGLE_MAP_API_KEY } from "../../const";
+import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 
-export default () => {
+const mapStyles = {
+  width: "100%",
+  height: "100%"
+};
+
+const RestaurantPage: React.FC = (props: any) => {
   const [excludedCategories, setExcludedCategories] = useState<Array<string>>(
     []
   );
   const [restaurant, setRestaurant] = useState<Restaurant>({
     name: "",
     category: "",
-    latitude: -1,
-    longitude: -1,
+    latitude: 48.0,
+    longitude: 122.0,
     menu: ""
   });
   const [redirect, setRedirect] = useState(false);
@@ -22,7 +29,7 @@ export default () => {
     const res: Restaurant | undefined = getRandomRestaurant(excludedCategories);
     if (res !== undefined) {
       setRestaurant(res);
-      console.log(excludedCategories);
+      console.log(res);
     } else {
       setRedirect(true);
     }
@@ -52,9 +59,30 @@ export default () => {
           </div>
         </Col>
         <Col span={12}>
-          <div className="map"></div>
+          <div className="map-container">
+            <Map
+              zoom={8}
+              google={props.google}
+              center={{
+                lat: restaurant.latitude,
+                lng: restaurant.longitude
+              }}
+            >
+              <Marker
+                title={restaurant.name}
+                position={{
+                  lat: restaurant.latitude,
+                  lng: restaurant.longitude
+                }}
+              />
+            </Map>
+          </div>
         </Col>
       </Row>
     </div>
   );
 };
+
+export default GoogleApiWrapper({
+  apiKey: GOOGLE_MAP_API_KEY
+})(RestaurantPage);

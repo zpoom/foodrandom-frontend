@@ -1,17 +1,83 @@
 import { Restaurant } from "../interfaces";
 import axios from "axios";
 const dummyRestaurants: Array<Restaurant> = [
-  { latitude: 10, longitude: 20, name: "Dummy1", category: "C1", menu: "M1" },
-  { latitude: 20, longitude: 20, name: "Dummy2", category: "C2", menu: "M1" },
-  { latitude: 30, longitude: 20, name: "Dummy3", category: "C3", menu: "M1" },
-  { latitude: 40, longitude: 20, name: "Dummy4", category: "C4", menu: "M4" },
-  { latitude: 50, longitude: 20, name: "Dummy5", category: "C5", menu: "M5" },
-  { latitude: 10, longitude: 20, name: "Dummy1", category: "C1", menu: "M2" },
-  { latitude: 20, longitude: 20, name: "Dummy2", category: "C2", menu: "M3" },
-  { latitude: 30, longitude: 20, name: "Dummy3", category: "C3", menu: "M2" },
-  { latitude: 40, longitude: 20, name: "Dummy4", category: "C4", menu: "M1" },
-  { latitude: 50, longitude: 20, name: "Dummy5", category: "C5", menu: "M1" },
-  { latitude: 10, longitude: 20, name: "Dummy1", category: "C1", menu: "M10" }
+  {
+    latitude: 13.768864,
+    longitude: 100.540041,
+    name: "Sushi Hiro",
+    category: "Japanese",
+    menu: "Salmon sashimi"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy2",
+    category: "C2",
+    menu: "M1"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy3",
+    category: "C3",
+    menu: "M1"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy4",
+    category: "C4",
+    menu: "M4"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy5",
+    category: "C5",
+    menu: "M5"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy1",
+    category: "C1",
+    menu: "M2"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy2",
+    category: "C2",
+    menu: "M3"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy3",
+    category: "C3",
+    menu: "M2"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy4",
+    category: "C4",
+    menu: "M1"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy5",
+    category: "C5",
+    menu: "M1"
+  },
+  {
+    latitude: 48.0,
+    longitude: -122.0,
+    name: "Dummy1",
+    category: "C1",
+    menu: "M10"
+  }
 ];
 const baseUrl: string = "localhost:8080";
 const query: string = `{hello}`;
