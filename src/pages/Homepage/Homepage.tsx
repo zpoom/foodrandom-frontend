@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Button, Row, Col } from "antd";
-import "./Homepage.css";
+import "./index.css";
 export default () => {
   return (
     <Fragment>

@@ -4,7 +4,7 @@ import { Row, Col } from "antd";
 import { Restaurant } from "../../interfaces";
 import { getRandomRestaurant } from "../../api/restaurant";
 import { Redirect } from "react-router-dom";
-import "./Restaurant.css";
+import "./index.css";
 import { GOOGLE_MAP_API_KEY } from "../../const";
 import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 

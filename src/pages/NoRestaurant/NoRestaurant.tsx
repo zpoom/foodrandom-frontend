@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
-import "./NoRestaurant.css";
+import "./index.css";
 import { RAN_OUT_MESSAGE } from "../../const";
 import { Link } from "react-router-dom";
 export default () => {
