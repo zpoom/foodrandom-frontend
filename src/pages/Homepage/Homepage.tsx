@@ -13,7 +13,6 @@ export default () => {
             </div>
           </Link>
         </Col>
-        <img src="./next.png" alt="next" className="next-icon" />
       </Row>
     </Fragment>
   );

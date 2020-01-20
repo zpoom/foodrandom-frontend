@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "../../components";
 import { Row, Col } from "antd";
 import { Restaurant } from "../../interfaces";
@@ -7,11 +7,6 @@ import { Redirect } from "react-router-dom";
 import "./restaurant.css";
 import { GOOGLE_MAP_API_KEY } from "../../const";
 import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
-
-const mapStyles = {
-  width: "100%",
-  height: "100%"
-};
 
 const RestaurantPage: React.FC = (props: any) => {
   const [excludedCategories, setExcludedCategories] = useState<Array<string>>(
@@ -24,17 +19,19 @@ const RestaurantPage: React.FC = (props: any) => {
     longitude: 122.0,
     menu: ""
   });
-  const [redirect, setRedirect] = useState(false);
+  const [hasRestaurant, setHasRestaurant] = useState<boolean>(false);
   useEffect(() => {
-    getRandomRestaurant(excludedCategories).then(res => {
-      console.log(res);
-      if (res !== null) {
-        setRestaurant(res);
-        console.log(res);
-      } else {
-        setRedirect(true);
-      }
-    });
+    getRandomRestaurant(excludedCategories)
+      .then(res => {
+        if (res !== null) {
+          setRestaurant(res);
+        } else {
+          setHasRestaurant(true);
+        }
+      })
+      .catch(err => {
+        // throw error here
+      });
   }, [excludedCategories]);
 
   const excludedThisCategory = (category: string) => {
@@ -42,7 +39,7 @@ const RestaurantPage: React.FC = (props: any) => {
       setExcludedCategories(excludedCategories.concat(category));
     }
   };
-  return redirect ? (
+  return hasRestaurant ? (
     <Redirect to="/no-restaurant" />
   ) : (
     <div className="restaurant-container">

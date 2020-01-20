@@ -17,13 +17,3 @@
 .what-to-eat h1:hover {
   text-decoration: underline;
 }
-
-.next-icon {
-  width: 10vw;
-  height: auto;
-  display: none;
-}
-
-what-to-eat h1:hover + .icon {
-  display: inline-block;
-}
