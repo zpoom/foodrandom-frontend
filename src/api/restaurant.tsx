@@ -2,8 +2,8 @@ import { Restaurant } from "../interfaces";
 import axios from "axios";
 const dummyRestaurants: Array<Restaurant> = [
   {
-    latitude: 13.768864,
-    longitude: 100.540041,
+    latitude: 13.768546,
+    longitude: 100.540051,
     name: "Sushi Hiro",
     category: "Japanese",
     menu: "Salmon sashimi"
@@ -79,21 +79,38 @@ const dummyRestaurants: Array<Restaurant> = [
     menu: "M10"
   }
 ];
-const baseUrl: string = "localhost:8080";
-const query: string = `{hello}`;
-export const getRandomRestaurant = (excludedCategories: Array<string>) => {
-  const randomizedRestaurants = dummyRestaurants.filter(restaurant => {
-    return !excludedCategories.includes(restaurant.category);
-  });
-  const randIdx: number = Math.floor(
-    Math.random() * randomizedRestaurants.length
-  );
-  return randomizedRestaurants.length === 0
-    ? undefined
-    : randomizedRestaurants[randIdx];
+const baseUrl: string = "http://localhost:8080";
+const query: string = `{ getRandomizedRestaurant(excludedCategories: ["TH","AB"]){ name,category,latitude,longitude}}`;
+const getQuery = (excludedCategories: Array<string>) => {
+  return excludedCategories.length === 0
+    ? `{ getRandomizedRestaurant(excludedCategories: []){ name,category,latitude,longitude,menu}}`
+    : `{ getRandomizedRestaurant(excludedCategories: ${JSON.stringify(
+        excludedCategories
+      )}){ name,category,latitude,longitude,menu}}`;
 };
+// export const getRandomRestaurant = (excludedCategories: Array<string>) => {
+//   const randomizedRestaurants = dummyRestaurants.filter(restaurant => {
+//     return !excludedCategories.includes(restaurant.category);
+//   });
+//   const randIdx: number = Math.floor(
+//     Math.random() * randomizedRestaurants.length
+//   );
+//   return randomizedRestaurants.length === 0
+//     ? undefined
+//     : randomizedRestaurants[randIdx];
+// };
 
-// export async function getRandomRestaurant(excludedCategories: Array<string>) {
-//   const res = await axios.post(`${baseUrl}/graphql`, query);
-//   console.log(res.data);
-// }
+export const getRandomRestaurant = async (
+  excludedCategories: Array<string>
+) => {
+  console.log(getQuery(excludedCategories));
+  return (
+    await axios({
+      url: `${baseUrl}/graphql`,
+      method: "post",
+      data: {
+        query: getQuery(excludedCategories)
+      }
+    })
+  ).data.data.getRandomizedRestaurant;
+};

@@ -1,0 +1,32 @@
+.icon {
+  width: 20vw;
+  height: auto;
+  display: block;
+  margin: 10vh auto;
+}
+.ran-out-message {
+  text-align: center;
+  display: block;
+  margin-top: 5vh;
+  font-size: x-large;
+  font-family: "Rubik", sans-serif;
+  color: black;
+}
+.try-again-button {
+  margin-top: 5vh;
+  background-color: #e5d68e;
+  border-radius: 3vh;
+  text-align: center;
+  width: auto;
+  height: auto;
+}
+.try-again-button h1 {
+  font-family: "Rubik", sans-serif;
+  font-size: 36px;
+  color: black;
+  padding: 5vh;
+  margin-top: 2vh;
+}
+.try-again-button h1:hover {
+  text-decoration: underline;
+}

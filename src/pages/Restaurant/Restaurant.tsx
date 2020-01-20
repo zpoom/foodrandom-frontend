@@ -26,13 +26,15 @@ const RestaurantPage: React.FC = (props: any) => {
   });
   const [redirect, setRedirect] = useState(false);
   useEffect(() => {
-    const res: Restaurant | undefined = getRandomRestaurant(excludedCategories);
-    if (res !== undefined) {
-      setRestaurant(res);
+    getRandomRestaurant(excludedCategories).then(res => {
       console.log(res);
-    } else {
-      setRedirect(true);
-    }
+      if (res !== null) {
+        setRestaurant(res);
+        console.log(res);
+      } else {
+        setRedirect(true);
+      }
+    });
   }, [excludedCategories]);
 
   const excludedThisCategory = (category: string) => {
@@ -61,7 +63,7 @@ const RestaurantPage: React.FC = (props: any) => {
         <Col span={12}>
           <div className="map-container">
             <Map
-              zoom={8}
+              zoom={16}
               google={props.google}
               center={{
                 lat: restaurant.latitude,

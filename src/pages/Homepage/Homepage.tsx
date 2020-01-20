@@ -6,7 +6,7 @@ export default () => {
   return (
     <Fragment>
       <Row type="flex" justify="center">
-        <Col span={10}>
+        <Col span={12}>
           <Link to="/restaurant">
             <div className="what-to-eat">
               <h1>What to Eat?</h1>
