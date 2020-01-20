@@ -27,5 +27,5 @@ jobs:
           firebase use $PROJECT_NAME &&
           firebase deploy
         env:
-          PROJECT_NAME: matcher-api
+          PROJECT_NAME: food-random-265418
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
