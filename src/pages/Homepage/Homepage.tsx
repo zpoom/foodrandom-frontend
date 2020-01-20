@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Button, Row, Col } from "antd";
+import { Row, Col } from "antd";
 import "./index.css";
 export default () => {
   return (
