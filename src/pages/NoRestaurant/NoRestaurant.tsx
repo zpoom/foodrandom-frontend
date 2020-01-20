@@ -9,7 +9,7 @@ export default () => {
       <img src="./fork.png" alt="food-random" className="icon" />
       <div className="ran-out-message">{RAN_OUT_MESSAGE}</div>
       <Row justify="center" type="flex">
-        <Col span={6}>
+        <Col xs={{ span: 10 }} xl={{ span: 6 }}>
           <Link to="/restaurant">
             <div className="try-again-button">
               <h1>Try again</h1>
