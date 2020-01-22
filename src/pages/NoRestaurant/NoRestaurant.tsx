@@ -1,14 +1,15 @@
 import React from "react";
 import { Row, Col } from "antd";
 import "./index.css";
-import { RAN_OUT_MESSAGE } from "../../const";
 import { Link } from "react-router-dom";
 import { Credits } from "../../components";
 export default () => {
   return (
     <div className="no-restaurant">
       <img src="./fork.png" alt="food-random" className="icon" />
-      <div className="ran-out-message">{RAN_OUT_MESSAGE}</div>
+      <div className="ran-out-message">
+        We ran out of restaurants to suggest, please try again.
+      </div>
       <Row justify="center" type="flex">
         <Col xs={{ span: 16 }} xl={{ span: 6 }}>
           <Link to="/restaurant">
