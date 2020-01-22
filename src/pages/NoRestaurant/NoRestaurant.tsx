@@ -3,6 +3,7 @@ import { Row, Col } from "antd";
 import "./index.css";
 import { RAN_OUT_MESSAGE } from "../../const";
 import { Link } from "react-router-dom";
+import { Credits } from "../../components";
 export default () => {
   return (
     <div className="no-restaurant">
@@ -17,6 +18,7 @@ export default () => {
           </Link>
         </Col>
       </Row>
+      <Credits />
     </div>
   );
 };

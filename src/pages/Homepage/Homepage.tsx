@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
 import "./index.css";
+import { Credits } from "../../components";
 export default () => {
   return (
     <Fragment>
@@ -15,6 +16,7 @@ export default () => {
           </Link>
         </Col>
       </Row>
+      <Credits />
     </Fragment>
   );
 };

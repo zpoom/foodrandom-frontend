@@ -1,2 +1,3 @@
 import Card from "./Card/Card";
-export { Card };
+import Credits from "./Credits/Credits";
+export { Card, Credits };

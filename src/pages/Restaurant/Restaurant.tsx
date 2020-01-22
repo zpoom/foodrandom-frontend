@@ -8,11 +8,6 @@ import "./index.css";
 import { GOOGLE_MAP_API_KEY } from "../../const";
 import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 
-const mapStyle = {
-  width: "100%",
-  height: "100%"
-};
-
 const RestaurantPage: React.FC = (props: any) => {
   const [excludedCategories, setExcludedCategories] = useState<Array<string>>(
     []
