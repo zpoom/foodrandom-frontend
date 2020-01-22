@@ -21,7 +21,7 @@ jobs:
       - name: Install required packages
         run: yarn install
       - name: Build React app
-        run: GOOGLE_MAP_API_KEY=$GOOGLE_MAP_API_KEY && yarn build
+        run: yarn build
       - name: Deploy firebase hosting
         run: >-
           firebase use $PROJECT_NAME &&
@@ -29,4 +29,3 @@ jobs:
         env:
           PROJECT_NAME: food-random-265418
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          GOOGLE_MAP_API_KEY: ${{secrets.GOOGLE_MAP_API_KEY}}
