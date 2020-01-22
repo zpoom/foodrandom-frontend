@@ -1,5 +1,12 @@
+.welcome-message {
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  color: black;
+  font-size: 4vw;
+  margin-top: 5vh;
+}
 .what-to-eat {
-  margin-top: 30vh;
+  margin-top: 25vh;
   background-color: #e5d68e;
   border-radius: 3vh;
   /* width: 40vw; */

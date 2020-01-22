@@ -5,6 +5,7 @@ import "./index.css";
 export default () => {
   return (
     <Fragment>
+      <h1 className="welcome-message">Welcome to FoodRandom.</h1>
       <Row type="flex" justify="center">
         <Col span={12}>
           <Link to="/restaurant">

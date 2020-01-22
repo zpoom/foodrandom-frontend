@@ -1,6 +1,5 @@
 import axios from "axios";
 import { baseUrl } from "../const";
-// const query: string = `{ getRandomizedRestaurant(excludedCategories: ["TH","AB"]){ name,category,latitude,longitude}}`;
 const getQuery = (excludedCategories: Array<string>) => {
   return `{ getRandomizedRestaurant(excludedCategories: ${JSON.stringify(
     excludedCategories

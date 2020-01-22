@@ -8,6 +8,11 @@ import "./index.css";
 import { GOOGLE_MAP_API_KEY } from "../../const";
 import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 
+const mapStyle = {
+  width: "100%",
+  height: "100%"
+};
+
 const RestaurantPage: React.FC = (props: any) => {
   const [excludedCategories, setExcludedCategories] = useState<Array<string>>(
     []
@@ -43,21 +48,9 @@ const RestaurantPage: React.FC = (props: any) => {
     <Redirect to="/no-restaurant" />
   ) : (
     <div className="restaurant-container">
+      <h1 className="restaurant-name">{restaurant.name}</h1>
       <Row type="flex" justify="center">
-        <Col span={8}>
-          <div className="card-container">
-            <Card title="Menu" content={restaurant.menu}></Card>
-          </div>
-          <div className="card-container">
-            <Card title="Category" content={restaurant.category}></Card>
-          </div>
-          <div className="exclude-button">
-            <h1 onClick={() => excludedThisCategory(restaurant.category)}>
-              {`No ${restaurant.category} food, please`}
-            </h1>
-          </div>
-        </Col>
-        <Col span={12}>
+        <Col xl={{ span: 12 }} xs={{ span: 20 }}>
           <div className="map-container">
             <Map
               zoom={16}
@@ -75,6 +68,19 @@ const RestaurantPage: React.FC = (props: any) => {
                 }}
               />
             </Map>
+          </div>
+        </Col>
+        <Col xl={{ span: 5, offset: 2 }} xs={{ span: 20 }}>
+          <div className="card-container">
+            <Card title="Menu" content={restaurant.menu}></Card>
+          </div>
+          <div className="card-container">
+            <Card title="Category" content={restaurant.category}></Card>
+          </div>
+          <div className="exclude-button">
+            <h1
+              onClick={() => excludedThisCategory(restaurant.category)}
+            >{`No ${restaurant.category}, please`}</h1>
           </div>
         </Col>
       </Row>

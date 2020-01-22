@@ -1,5 +1,10 @@
 .restaurant-container {
-  margin-top: 15vh;
+  margin-top: 5vh;
+}
+.restaurant-name {
+  font-family: "Rubik", sans-serif;
+  font-size: 3vw;
+  text-align: center;
 }
 .map-container {
   width: 50vw;
@@ -14,17 +19,38 @@
   background-color: red;
   border-radius: 3vh;
   text-align: center;
-  width: 30vw;
+  width: 100%;
   height: 10vh;
-  display: inline-block;
 }
 .exclude-button h1 {
   font-family: "Rubik", sans-serif;
   font-size: 1.5vw;
   color: black;
-  padding: 1vh;
+  padding: 3vh 1vh;
   margin-top: 2vh;
 }
 .exclude-button h1:hover {
   text-decoration: underline;
+}
+
+.menu-data {
+  align-content: center;
+  display: block;
+}
+
+@media only screen and (max-width: 768px) {
+  .map-container {
+    width: 70vw;
+    height: 40vh;
+  }
+  .exclude-button {
+    height: 5vh;
+  }
+  .exclude-button h1 {
+    font-size: 16px;
+    padding: 1vh 0.3vh;
+  }
+  .restaurant-name {
+    font-size: 8vw;
+  }
 }
