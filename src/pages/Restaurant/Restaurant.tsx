@@ -30,7 +30,7 @@ const RestaurantPage: React.FC = (props: any) => {
         }
       })
       .catch(err => {
-        // throw error here
+        console.log(err);
       });
   }, [excludedCategories]);
 
